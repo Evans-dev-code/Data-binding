@@ -1,0 +1,37 @@
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    input, select, button{
+        flex: 1;
+        margin: 5px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button{
+        cursor: pointer;
+        background: #007bff;
+        color: #f9f9f9;
+        border: none;
+
+        &:disabled{
+            background: #ccc;
+        }
+    }
+
+    button:nth-child(2){
+        background: rgb(0, 119, 255);
+    }
+}

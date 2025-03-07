@@ -1,0 +1,66 @@
+<div class="form-container">
+    <div class="filled-data">
+        <h3>Form Data Preview</h3>
+        <p *ngIf="!form.valid">Fill the form to enable submit button.</p>
+        <p *ngIf="form.valid">All fields are filled. Ready to submit!</p>
+        <div *ngIf="form.value">
+            <p><strong>Portfolio:</strong> {{ form.value.portfolio }}</p>
+            <p><strong>Sub Portfolio:</strong> {{ form.value.subPortfolio }}</p>
+            <p><strong>Constraint:</strong> {{ form.value.constraint }}</p>
+            <p><strong>Sub Constraint:</strong> {{ form.value.subConstraint }}</p>
+            <p><strong>Base Currency:</strong> {{ form.value.baseCurrency }}</p>
+            <p><strong>Quote Currency:</strong> {{ form.value.quoteCurrency }}</p>
+            <p><strong>Date From:</strong> {{ form.value.dateFrom }}</p>
+            <p><strong>Date To:</strong> {{ form.value.dateTo }}</p> 
+
+        </div>
+    </div>
+
+    <form [formGroup]="form">
+        <div class="row">
+            <input formControlName="portfolio" placeholder="Portfolio">
+            <input formControlName="subPortfolio" placeholder="Sub Portfolio">
+        </div>
+
+        <div class="row">
+            <input formControlName="constraint" placeholder="Constraint">
+            <input formControlName="constraint" placeholder="Sub Constraint">
+        </div>
+
+        <div class="row">
+            <select formControlName="baseCurrency">
+              <option value="">Select Base Currency</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+              <option value="GBP">GBP</option>
+              <option value="CHF">CHF</option>
+              <option value="AUD">AUD</option>
+            </select>
+            <select formControlName="quoteCurrency">
+              <option value="">Select Quote Currency</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="JPY">JPY</option>
+              <option value="GBP">GBP</option>
+              <option value="CHF">CHF</option>
+              <option value="AUD">AUD</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <input formControlName="dateFrom" placeholder="Date From" readonly (click)="openDateDialog()">
+            <input formControlName="dateTo" placeholder="Date To" readonly (click)="openDateDialog()">
+          </div>
+      
+          <div class="row">
+            <button type="button" [disabled]="!form.valid" (click)="submitForm()">Submit</button>
+            <button type="button" (click)="clearForm()">Clear</button>
+          </div>  
+    </form>
+
+    <div *ngIf="submittedData">
+        <h3>submittedData</h3>
+        <pre>{{ submittedData | json }}</pre>
+    </div>
+</div>
