@@ -41,13 +41,17 @@ openDateDialog(): void {
   });
 }
 
-submitForm() {
+submitForm(): void {
   if (this.form.valid) {
-    this.submittedData = this.form.value;
+    this.submittedData = { ...this.form.value };
+    console.log('Form submitted:', this.submittedData);
+    // This is where you will send data to the backend using an HTTP service
+  } else {
+    console.log('Form is invalid');
   }
 }
 
-clearForm() {
+clearForm(): void {
   this.form.reset();
   this.submittedData = null;
 }

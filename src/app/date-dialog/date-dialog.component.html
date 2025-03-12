@@ -1,5 +1,10 @@
 <h2>Select Dates</h2>
-<input type="date" [(ngModel)]="dateFrom">
-<input type="date" [(ngModel)]="dateTo">
-<button (click)="closeDialog()">Save</button>
-
+<div class="date-picker-container">
+    <label for="dateFrom">From:</label>
+    <input type="date" id="dateFrom" [(ngModel)]="dateFrom">
+    
+    <label for="dateTo">To:</label>
+    <input type="date" id="dateTo" [(ngModel)]="dateTo">
+    
+    <button (click)="closeDialog()">Save</button>
+</div>
